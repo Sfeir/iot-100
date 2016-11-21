@@ -29,7 +29,10 @@
     }
 
     getBatteryLevel() {
-     
+      return this.device.gatt.getPrimaryService('battery_service')
+      .then(service => service.getCharacteristic('battery_level'))
+      .then(characteristic => characteristic.readValue())
+      .then(data => data.getUint8(0));
     }
 
 

@@ -3,8 +3,9 @@ document.querySelector('#connect').addEventListener('click', event => {
     .then(() => {
       console.log(playbulbCandle.device);
       document.querySelector('#state').classList.remove('connecting');
-      document.querySelector('#state').classList.add('connected');
-       return playbulbCandle.getDeviceName().then(handleDeviceName);
+      document.querySelector('#state').classList.add('connected');       
+      return playbulbCandle.getDeviceName().then(handleDeviceName)
+      .then(() => playbulbCandle.getBatteryLevel().then(handleBatteryLevel));
     })
     .catch(error => {
       console.error('Argh!', error);
