@@ -16,6 +16,9 @@ function handleDeviceName(deviceName) {
   document.querySelector('#deviceName').value = deviceName;
 }
 
+function handleBatteryLevel(batteryLevel) {
+  document.querySelector('#batteryLevel').textContent = batteryLevel + '%';
+}
 
 function changeColor() {
   /* This function is called when user clicks on an effect radio button. */

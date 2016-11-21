@@ -9,7 +9,8 @@
       this.device = null;
     }
     connect() {
-      let options = {filters:[{services:[ CANDLE_SERVICE_UUID ]}]};
+      let options = {filters:[{services:[ CANDLE_SERVICE_UUID ]}],
+                     optionalServices: ['battery_service']};
       return navigator.bluetooth.requestDevice(options)
         .then(device => {
           this.device = device;
@@ -25,6 +26,10 @@
         let decoder = new TextDecoder('utf-8');
         return decoder.decode(data);
       });
+    }
+
+    getBatteryLevel() {
+     
     }
 
 
