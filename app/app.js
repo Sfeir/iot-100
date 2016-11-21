@@ -1,6 +1,13 @@
-document.querySelector('#connect').addEventListener('click', function(event) {
-  /* Clicking this button will attempt to connect to the PLAYBULB Candle and
-   * read some values such as Device Name and Battery Level. */
+document.querySelector('#connect').addEventListener('click', event => {
+  playbulbCandle.connect()
+    .then(() => {
+      console.log(playbulbCandle.device);
+      document.querySelector('#state').classList.remove('connecting');
+      document.querySelector('#state').classList.add('connected');
+    })
+    .catch(error => {
+      console.error('Argh!', error);
+    });
 });
 
 function changeColor() {
