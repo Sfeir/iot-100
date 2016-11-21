@@ -4,6 +4,7 @@ document.querySelector('#connect').addEventListener('click', event => {
       console.log(playbulbCandle.device);
       document.querySelector('#state').classList.remove('connecting');
       document.querySelector('#state').classList.add('connected');
+       return playbulbCandle.getDeviceName().then(handleDeviceName);
     })
     .catch(error => {
       console.error('Argh!', error);

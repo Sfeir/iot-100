@@ -13,11 +13,18 @@
       return navigator.bluetooth.requestDevice(options)
         .then(device => {
           this.device = device;
+          return this.device.gatt.connect();
         });
     }
 
     getDeviceName() {
-
+      return this.device.gatt.getPrimaryService(CANDLE_SERVICE_UUID)
+      .then(service => service.getCharacteristic(CANDLE_DEVICE_NAME_UUID))
+      .then(characteristic => characteristic.readValue())
+      .then(data => {
+        let decoder = new TextDecoder('utf-8');
+        return decoder.decode(data);
+      });
     }
 
 
