@@ -2,6 +2,7 @@
   'use strict';
 
   const CANDLE_SERVICE_UUID = 0xFF02;
+  const CANDLE_DEVICE_NAME_UUID = 0xFFFF;
 
   class PlaybulbCandle {
     constructor() {
@@ -14,6 +15,12 @@
           this.device = device;
         });
     }
+
+    getDeviceName() {
+
+    }
+
+
   }
 
   window.playbulbCandle = new PlaybulbCandle();

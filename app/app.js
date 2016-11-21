@@ -10,6 +10,12 @@ document.querySelector('#connect').addEventListener('click', event => {
     });
 });
 
+
+function handleDeviceName(deviceName) {
+  document.querySelector('#deviceName').value = deviceName;
+}
+
+
 function changeColor() {
   /* This function is called when user clicks on an effect radio button. */
 }
