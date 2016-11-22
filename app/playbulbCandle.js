@@ -3,6 +3,7 @@
 
   const CANDLE_SERVICE_UUID = 0xFF02;
   const CANDLE_DEVICE_NAME_UUID = 0xFFFF;
+  const CANDLE_COLOR_UUID = 0xFFFC;
 
   class PlaybulbCandle {
     constructor() {
@@ -35,6 +36,10 @@
       .then(data => data.getUint8(0));
     }
 
+    setColor(r, g, b) {
+      let data = new Uint8Array([0x00, r, g, b]);
+
+    }
 
   }
 
