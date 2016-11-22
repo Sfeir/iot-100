@@ -28,6 +28,17 @@ function changeColor() {
   }
 }
 
+document.querySelector('#deviceName').addEventListener('input', event => {
+  playbulbCandle.setDeviceName(event.target.value)
+    .then(() => {
+      console.log('Device name changed to ' + event.target.value);
+    })
+    .catch(error => {
+      console.error('Argh!', error);
+    });
+});
+
+
 var r = g = b = 255;
 
 function onColorChanged(rgb) {

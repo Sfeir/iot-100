@@ -44,6 +44,10 @@
         .then(() => [r,g,b]);
     }
 
+    setDeviceName(name) {
+
+    }
+
   }
 
   window.playbulbCandle = new PlaybulbCandle();
