@@ -38,7 +38,10 @@
 
     setColor(r, g, b) {
       let data = new Uint8Array([0x00, r, g, b]);
-
+      return this.device.gatt.getPrimaryService(CANDLE_SERVICE_UUID)
+        .then(service => service.getCharacteristic(CANDLE_COLOR_UUID))
+        .then(characteristic => characteristic.writeValue(data))
+        .then(() => [r,g,b]);
     }
 
   }
