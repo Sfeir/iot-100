@@ -45,7 +45,12 @@
     }
 
     setDeviceName(name) {
-
+      return this.device.gatt.getPrimaryService(CANDLE_SERVICE_UUID)
+        .then(service => service.getCharacteristic(CANDLE_DEVICE_NAME_UUID))
+        .then(characteristic => {
+          let encoder = new TextEncoder('utf-8');
+          return characteristic.writeValue(encoder.encode(name));
+        });
     }
 
   }
