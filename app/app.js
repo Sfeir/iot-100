@@ -23,8 +23,25 @@ function handleBatteryLevel(batteryLevel) {
 
 function changeColor() {
   var effect = document.querySelector('[name="effectSwitch"]:checked').id;
-  if (effect === 'noEffect') {
-    playbulbCandle.setColor(r, g, b).then(onColorChanged);
+  switch(effect) {
+    case 'noEffect':
+      playbulbCandle.setColor(r, g, b).then(onColorChanged);
+      break;
+    case 'candleEffect':
+      playbulbCandle.setCandleEffectColor(r, g, b).then(onColorChanged);
+      break;
+    case 'flashing':
+      playbulbCandle.setFlashingColor(r, g, b).then(onColorChanged);
+      break;
+    case 'pulse':
+      playbulbCandle.setPulseColor(r, g, b).then(onColorChanged);
+      break;
+    case 'rainbow':
+      playbulbCandle.setRainbow().then(onColorChanged);
+      break;
+    case 'rainbowFade':
+      playbulbCandle.setRainbowFade().then(onColorChanged);
+      break;
   }
 }
 
